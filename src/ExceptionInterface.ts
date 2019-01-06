@@ -53,6 +53,6 @@ interface ExceptionInterfaceConstructor {
     new(message?: string, code?: string, status?: number, data?: object): ExceptionInterface;
 }
 
-declare var ExceptionInterface: ExceptionInterfaceConstructor;
+declare const ExceptionInterface: ExceptionInterfaceConstructor;
 
 export default ExceptionInterface;
