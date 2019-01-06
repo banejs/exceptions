@@ -1,6 +1,6 @@
 {
   "name": "@banejs/exceptions",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "BaneJS Exceptions",
   "scripts": {
     "test": "npm run test:type-check && npm run test:tslint && npm run test:jest",
