@@ -10,7 +10,13 @@ import ExceptionInterface from '../ExceptionInterface';
  */
 export default function normalizeError(error: Error | ExceptionInterface | any): ExceptionInterface {
     if (!(error instanceof Exception)) {
-        return new Exception(error.message);
+        const normalizedError: ExceptionInterface = new Exception(error.message);
+
+        if (error.stack) {
+            normalizedError.stack = error.stack;
+        }
+
+        return normalizedError;
     }
 
     return error;
