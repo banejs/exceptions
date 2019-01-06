@@ -15,7 +15,7 @@
     "github:tag": "git tag v$npm_package_version",
     "github:push": "git push --tags",
     "prepublish-package": "npm run test && npm run build && npm run prepublish-package:copy && npm run github",
-    "prepublish-package:copy": "cp ./package.json README.md LICENSE build"
+    "prepublish-package:copy": "cp package.json README.md LICENSE build"
   },
   "repository": {
     "type": "git",
