@@ -1,16 +1,17 @@
 import Exception from '../Exception';
+import ExceptionInterface from '../ExceptionInterface';
 
 describe('Exception', () => {
     describe('#constructor(message, code, status, data)', () => {
         test('should create instance of an Error and Exception', () => {
-            const e = new Exception();
+            const e: ExceptionInterface = new Exception();
 
             expect(e).toBeInstanceOf(Error);
             expect(e).toBeInstanceOf(Exception);
         });
 
         test('should create instance with default parameters', () => {
-            const e = new Exception();
+            const e: ExceptionInterface = new Exception();
 
             expect(e.message).toBe('Internal error');
             expect(e.name).toBe('Exception');
@@ -21,8 +22,8 @@ describe('Exception', () => {
         });
 
         test('should create instance with user-defined parameters', () => {
-            const data = { foo: 'bar' };
-            const e = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
+            const data: { foo: string } = { foo: 'bar' };
+            const e: ExceptionInterface = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
 
             expect(e.message).toBe('Not Found');
             expect(e.name).toBe('Exception');
@@ -35,7 +36,7 @@ describe('Exception', () => {
 
     describe('#toJSON()', () => {
         test('should return object with default parameters', () => {
-            const e = new Exception();
+            const e: ExceptionInterface = new Exception();
 
             expect(e.toJSON()).toEqual({
                 name: 'Exception',
@@ -47,8 +48,8 @@ describe('Exception', () => {
         });
 
         test('should return object with user-defined parameters', () => {
-            const data = { foo: 'bar' };
-            const e = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
+            const data: { foo: string } = { foo: 'bar' };
+            const e: ExceptionInterface = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
 
             expect(e.toJSON()).toEqual({
                 name: 'Exception',
@@ -61,10 +62,12 @@ describe('Exception', () => {
     });
 
     describe('Error class does not have `captureStackTrace` method', () => {
-        let captureStackTrace;
+        // @ts-ignore Ignore typescript error "Property 'captureStackTrace' does not exist on type 'Error'.
+        let captureStackTrace: Error['captureStackTrace'] | undefined;
 
         beforeAll(() => {
             captureStackTrace = Error.captureStackTrace;
+            // tslint:disable-next-line
             delete Error.captureStackTrace;
         });
 
@@ -73,7 +76,7 @@ describe('Exception', () => {
         });
 
         test('should capture stack trace', () => {
-            const e = new Exception();
+            const e: ExceptionInterface = new Exception();
 
             expect(typeof e.stack).toBe('string');
         });
