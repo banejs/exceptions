@@ -1,7 +1,7 @@
-import ExceptionInterface from '../../ExceptionInterface';
+import ExceptionInterface from '../../types/ExceptionInterface';
 
-import normalizeError from '../normalizeError';
 import Exception from '../../Exception';
+import normalizeError from '../normalizeError';
 
 describe('normalizeError', () => {
     test('normalized error is instance of Exception', () => {

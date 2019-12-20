@@ -1,4 +1,4 @@
-import ExceptionInterface from './ExceptionInterface';
+import ExceptionInterface from './types/ExceptionInterface';
 
 /**
  * Exception is a neutral class extend the Error object.
@@ -39,7 +39,9 @@ export default class Exception extends Error implements ExceptionInterface {
      *
      * @type {Object}
      */
-    public data: object;
+    public data: {
+        [key: string]: any;
+    };
 
     /**
      * Stack trace.

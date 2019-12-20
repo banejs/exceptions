@@ -1,5 +1,5 @@
 import Exception from '../Exception';
-import ExceptionInterface from '../ExceptionInterface';
+import ExceptionInterface from '../types/ExceptionInterface';
 
 describe('Exception', () => {
     describe('#constructor(message, code, status, data)', () => {

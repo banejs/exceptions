@@ -1,5 +1,6 @@
+import ExceptionInterface from '../types/ExceptionInterface';
+
 import Exception from '../Exception';
-import ExceptionInterface from '../ExceptionInterface';
 
 /**
  * Normalize error object by setting required parameters if they does not exists.
