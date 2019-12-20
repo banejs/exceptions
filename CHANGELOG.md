@@ -1,3 +1,7 @@
+# [1.0.0-beta.5](https://github.com/banejs/exceptions/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2019-12-20)
+
+
+
 # [1.0.0-beta.4](https://github.com/banejs/exceptions/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2019-12-20)
 
 
