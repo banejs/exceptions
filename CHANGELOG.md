@@ -1,3 +1,7 @@
+# [1.0.0-beta.3](https://github.com/banejs/exceptions/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2019-12-20)
+
+
+
 # [1.0.0-beta.2](https://github.com/banejs/exceptions/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2019-01-08)
 
 
@@ -7,7 +11,7 @@
 
 ### Bug Fixes
 
-* **normalizeError:** assign correct stack trace ([fb65aba](https://github.com/banejs/exceptions/commit/fb65aba))
+* **normalizeError:** assign correct stack trace ([fb65aba](https://github.com/banejs/exceptions/commit/fb65aba2079ceefcd84b7abf1f20473eabce6613))
 
 
 
