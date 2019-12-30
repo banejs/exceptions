@@ -1,4 +1,4 @@
-import ExceptionInterface from '../../types/ExceptionInterface';
+import IException from '../../types/IException';
 
 import Exception from '../../Exception';
 import normalizeError from '../normalizeError';
@@ -6,7 +6,7 @@ import normalizeError from '../normalizeError';
 describe('normalizeError', () => {
     test('normalized error is instance of Exception', () => {
         const error1: Error = new Error();
-        const error2: ExceptionInterface = new Exception();
+        const error2: IException = new Exception();
         const error3: {} = {};
 
         expect(normalizeError(error1)).toBeInstanceOf(Exception);

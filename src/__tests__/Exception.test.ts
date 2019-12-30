@@ -1,17 +1,17 @@
 import Exception from '../Exception';
-import ExceptionInterface from '../types/ExceptionInterface';
+import IException from '../types/IException';
 
 describe('Exception', () => {
     describe('#constructor(message, code, status, data)', () => {
         test('should create instance of an Error and Exception', () => {
-            const e: ExceptionInterface = new Exception();
+            const e: IException = new Exception();
 
             expect(e).toBeInstanceOf(Error);
             expect(e).toBeInstanceOf(Exception);
         });
 
         test('should create instance with default parameters', () => {
-            const e: ExceptionInterface = new Exception();
+            const e: IException = new Exception();
 
             expect(e.message).toBe('Internal error');
             expect(e.name).toBe('Exception');
@@ -23,7 +23,7 @@ describe('Exception', () => {
 
         test('should create instance with user-defined parameters', () => {
             const data: { foo: string } = { foo: 'bar' };
-            const e: ExceptionInterface = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
+            const e: IException = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
 
             expect(e.message).toBe('Not Found');
             expect(e.name).toBe('Exception');
@@ -36,7 +36,7 @@ describe('Exception', () => {
 
     describe('#toJSON()', () => {
         test('should return object with default parameters', () => {
-            const e: ExceptionInterface = new Exception();
+            const e: IException = new Exception();
 
             expect(e.toJSON()).toEqual({
                 name: 'Exception',
@@ -49,7 +49,7 @@ describe('Exception', () => {
 
         test('should return object with user-defined parameters', () => {
             const data: { foo: string } = { foo: 'bar' };
-            const e: ExceptionInterface = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
+            const e: IException = new Exception('Not Found', 'E_NOT_FOUND', 404, data);
 
             expect(e.toJSON()).toEqual({
                 name: 'Exception',
@@ -76,7 +76,7 @@ describe('Exception', () => {
         });
 
         test('should capture stack trace', () => {
-            const e: ExceptionInterface = new Exception();
+            const e: IException = new Exception();
 
             expect(typeof e.stack).toBe('string');
         });

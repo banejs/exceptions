@@ -1,11 +1,11 @@
-import ExceptionInterface from './types/ExceptionInterface';
+import IException from './types/IException';
 
 /**
  * Exception is a neutral class extend the Error object.
  *
  * @author Anton Drobot
  */
-export default class Exception extends Error implements ExceptionInterface {
+export default class Exception extends Error implements IException {
     /**
      * Error name.
      *

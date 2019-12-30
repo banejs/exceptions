@@ -1,4 +1,4 @@
-interface ExceptionInterface extends Error {
+interface IException extends Error {
     /**
      * Error name.
      *
@@ -49,10 +49,10 @@ interface ExceptionInterface extends Error {
     toJSON(): object;
 }
 
-interface ExceptionInterfaceConstructor {
-    new(message?: string, code?: string, status?: number, data?: object): ExceptionInterface;
+interface IExceptionConstructor {
+    new(message?: string, code?: string, status?: number, data?: object): IException;
 }
 
-declare const ExceptionInterface: ExceptionInterfaceConstructor;
+declare const IException: IExceptionConstructor;
 
-export default ExceptionInterface;
+export default IException;
