@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/banejs/exceptions/compare/v1.1.0...v1.1.1) (2020-01-21)
+
+
+### Bug Fixes
+
+* **types:** correct types for arguments ([1fb27d9](https://github.com/banejs/exceptions/commit/1fb27d91a2cd8fb396e9acdd28734e7ac4c4a7e3))
+
+
+
 # [1.1.0](https://github.com/banejs/exceptions/compare/v1.0.0...v1.1.0) (2019-12-30)
 
 
