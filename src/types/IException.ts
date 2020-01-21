@@ -1,56 +1,45 @@
+import IExceptionData from './IExceptionData';
+import IExceptionJSON from './IExceptionJSON';
+
 interface IException extends Error {
     /**
      * Error name.
-     *
-     * @type {string}
      */
     name: string;
 
     /**
      * A human-readable description of the error.
-     *
-     * @type {string}
      */
     message: string;
 
     /**
      * Error unique code.
-     *
-     * @type {string}
      */
     code: string;
 
     /**
      * Error status.
-     *
-     * @type {number}
      */
     status: number;
 
     /**
      * Custom fields of error.
-     *
-     * @type {Object}
      */
-    data: object;
+    data: IExceptionData;
 
     /**
      * Stack trace.
-     *
-     * @type {string}
      */
     stack?: string;
 
     /**
      * Returns a JSON representing the specified error.
-     *
-     * @type {Object}
      */
-    toJSON(): object;
+    toJSON(): IExceptionJSON;
 }
 
 interface IExceptionConstructor {
-    new(message?: string, code?: string, status?: number, data?: object): IException;
+    new(message?: string, code?: string, status?: number, data?: IExceptionData): IException;
 }
 
 declare const IException: IExceptionConstructor;

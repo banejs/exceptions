@@ -1,4 +1,6 @@
 import IException from './types/IException';
+import IExceptionData from './types/IExceptionData';
+import IExceptionJSON from './types/IExceptionJSON';
 
 /**
  * Exception is a neutral class extend the Error object.
@@ -8,49 +10,35 @@ import IException from './types/IException';
 export default class Exception extends Error implements IException {
     /**
      * Error name.
-     *
-     * @type {string}
      */
     public name: string = 'Exception';
 
     /**
      * A human-readable description of the error.
-     *
-     * @type {string}
      */
     public message: string;
 
     /**
      * Error unique code.
-     *
-     * @type {string}
      */
     public code: string;
 
     /**
      * Error status.
-     *
-     * @type {number}
      */
     public status: number;
 
     /**
      * Custom fields of error.
-     *
-     * @type {Object}
      */
-    public data: {
-        [key: string]: any;
-    };
+    public data: IExceptionData;
 
     /**
      * Stack trace.
-     *
-     * @type {string}
      */
     public stack?: string;
 
-    public constructor(message?: string, code: string = 'E_INTERNAL_ERROR', status: number = 500, data: object = {}) {
+    public constructor(message?: string, code: string = 'E_INTERNAL_ERROR', status: number = 500, data: IExceptionData = {}) {
         // Because default value for argument didn't work if argument value is empty string.
         super(message || 'Internal error');
 
@@ -65,7 +53,7 @@ export default class Exception extends Error implements IException {
         Reflect.setPrototypeOf(this, Exception.prototype);
     }
 
-    public toJSON(): Object {
+    public toJSON(): IExceptionJSON {
         return {
             name: this.name,
             message: this.message,
