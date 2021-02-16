@@ -1,7 +1,7 @@
 import IExceptionData from './IExceptionData';
 import IExceptionJSON from './IExceptionJSON';
 
-interface IException extends Error {
+interface IException<T extends IExceptionData = IExceptionData> extends Error {
     /**
      * Error name.
      */
@@ -25,7 +25,7 @@ interface IException extends Error {
     /**
      * Custom fields of error.
      */
-    data: IExceptionData;
+    data: T;
 
     /**
      * Stack trace.
@@ -35,13 +35,7 @@ interface IException extends Error {
     /**
      * Returns a JSON representing the specified error.
      */
-    toJSON(): IExceptionJSON;
+    toJSON(): IExceptionJSON<T>;
 }
-
-interface IExceptionConstructor {
-    new(message?: string, code?: string, status?: number, data?: IExceptionData): IException;
-}
-
-declare const IException: IExceptionConstructor;
 
 export default IException;

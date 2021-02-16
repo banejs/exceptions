@@ -7,7 +7,7 @@ import IExceptionJSON from './types/IExceptionJSON';
  *
  * @author Anton Drobot
  */
-export default class Exception extends Error implements IException {
+export default class Exception<T extends IExceptionData = IExceptionData> extends Error implements IException<T> {
     /**
      * Error name.
      */
@@ -31,14 +31,15 @@ export default class Exception extends Error implements IException {
     /**
      * Custom fields of error.
      */
-    public data: IExceptionData;
+    public data: T;
 
     /**
      * Stack trace.
      */
     public stack?: string;
 
-    public constructor(message?: string, code: string = 'E_INTERNAL_ERROR', status: number = 500, data: IExceptionData = {}) {
+    // @ts-ignore Here "T" is extending of IExceptionData, and the default value for "data" ({}) is always correct.
+    public constructor(message?: string, code: string = 'E_INTERNAL_ERROR', status: number = 500, data: T = {}) {
         // Because default value for argument didn't work if argument value is empty string.
         super(message || 'Internal error');
 
@@ -53,7 +54,7 @@ export default class Exception extends Error implements IException {
         Reflect.setPrototypeOf(this, Exception.prototype);
     }
 
-    public toJSON(): IExceptionJSON {
+    public toJSON(): IExceptionJSON<T> {
         return {
             name: this.name,
             message: this.message,

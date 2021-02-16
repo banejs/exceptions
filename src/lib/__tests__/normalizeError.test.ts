@@ -3,8 +3,8 @@ import IException from '../../types/IException';
 import Exception from '../../Exception';
 import normalizeError from '../normalizeError';
 
-describe('normalizeError', () => {
-    test('normalized error is instance of Exception', () => {
+describe('normalizeError', (): void => {
+    test('normalized error is instance of Exception', (): void => {
         const error1: Error = new Error();
         const error2: IException = new Exception();
         const error3: {} = {};
@@ -14,7 +14,7 @@ describe('normalizeError', () => {
         expect(normalizeError(error3)).toBeInstanceOf(Exception);
     });
 
-    test('normalized error has correct value with undefined message', () => {
+    test('normalized error has correct value with undefined message', (): void => {
         const error: Error = new Error();
 
         expect(normalizeError(error).message).toBe('Internal error');
@@ -23,7 +23,7 @@ describe('normalizeError', () => {
         expect(normalizeError(error).data).toEqual({});
     });
 
-    test('normalized error has correct value with message', () => {
+    test('normalized error has correct value with message', (): void => {
         const error: Error = new Error('Some message');
 
         expect(normalizeError(error).message).toBe('Some message');
