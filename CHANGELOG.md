@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/banejs/exceptions/compare/v1.1.1...v1.2.0) (2021-02-16)
+
+
+### Features
+
+* **interface:** add interface for data ([6c72711](https://github.com/banejs/exceptions/commit/6c7271125f96078004f0a69bfe9f160a425f991e))
+
+
+
 ## [1.1.1](https://github.com/banejs/exceptions/compare/v1.1.0...v1.1.1) (2020-01-21)
 
 
