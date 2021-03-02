@@ -1,5 +1,6 @@
 import Exception from '../Exception';
 import IException from '../types/IException';
+import IExceptionData from '../types/IExceptionData';
 
 interface ICustomExceptionData {
     foo: string;
@@ -35,7 +36,7 @@ describe('Exception', (): void => {
             expect(e.name).toBe('Exception');
             expect(e.code).toBe('E_INTERNAL_ERROR');
             expect(e.status).toBe(500);
-            expect(e.data).toEqual({});
+            expect(e.data).toStrictEqual({});
             expect(typeof e.stack).toBe('string');
         });
 
@@ -47,7 +48,20 @@ describe('Exception', (): void => {
             expect(e.name).toBe('Exception');
             expect(e.code).toBe('E_NOT_FOUND');
             expect(e.status).toBe(404);
-            expect(e.data).toBe(data);
+            expect(e.data).toStrictEqual(data);
+            expect(typeof e.stack).toBe('string');
+        });
+
+        test('should create instance with circular dependencies in data', (): void => {
+            const data: IExceptionData = { b: 1, a: 0 };
+            data.data = data;
+            const e: IException = new Exception('Circular data', 'E_CIRCULAR_DATA', 500, data);
+
+            expect(e.message).toBe('Circular data');
+            expect(e.name).toBe('Exception');
+            expect(e.code).toBe('E_CIRCULAR_DATA');
+            expect(e.status).toBe(500);
+            expect(e.data).toStrictEqual({ b: 1, a: 0, data: '[Circular]' });
             expect(typeof e.stack).toBe('string');
         });
     });

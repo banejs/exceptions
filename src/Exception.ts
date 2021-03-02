@@ -1,3 +1,5 @@
+import safeStringify from 'fast-safe-stringify';
+
 import IException from './types/IException';
 import IExceptionData from './types/IExceptionData';
 import IExceptionJSON from './types/IExceptionJSON';
@@ -46,7 +48,7 @@ export default class Exception<T extends IExceptionData = IExceptionData> extend
         this.message = message || 'Internal error';
         this.code = code;
         this.status = status;
-        this.data = data;
+        this.data = JSON.parse(safeStringify(data));
         this.stack = (new Error(message)).stack;
 
         // Set the prototype explicitly.
