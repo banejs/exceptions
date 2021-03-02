@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/banejs/exceptions/compare/v1.2.0...v1.3.0) (2021-03-02)
+
+
+### Features
+
+* **data:** support circular dependencies in data ([5d4e5a5](https://github.com/banejs/exceptions/commit/5d4e5a5add6d4fbee7973ae9bf8129c648075da2))
+
+
+
 # [1.2.0](https://github.com/banejs/exceptions/compare/v1.1.1...v1.2.0) (2021-02-16)
 
 
